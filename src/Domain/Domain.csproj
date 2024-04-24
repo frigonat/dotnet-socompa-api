@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\Build\Common.props"/>
+  <PropertyGroup>
+    <RootNamespace>dotnet_socompa_api.Domain</RootNamespace>
+    <AssemblyName>dotnet_socompa_api.Domain</AssemblyName>
+    <Version>8.2.2</Version>
+  </PropertyGroup>
+</Project>

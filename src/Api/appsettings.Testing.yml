@@ -1,0 +1,7 @@
+DataAccessRegistry:
+  Name: "default"
+#  ReadOnlyConnection: "Data Source=DBONBOARDDESA.andreani.com.ar;Initial Catalog=challenger;Persist Security Info=True;User ID=User_Onboarding;Password=0jp9dQALTMkOMVC0Wss2;TrustServerCertificate=true"
+#  TransactionalConnection: "Data Source=DBONBOARDDESA.andreani.com.ar;Initial Catalog=challenger;Persist Security Info=True;User ID=User_Onboarding;Password=0jp9dQALTMkOMVC0Wss2;TrustServerCertificate=true"
+  ReadOnlyConnection: "Data Source=NB100791\\SQLEXPRESS;Initial Catalog=challenger;Persist Security Info=True;User ID=challenger;Password=seisMiles;TrustServerCertificate=true"
+  TransactionalConnection: "Data Source=NB100791\\SQLEXPRESS;Initial Catalog=challenger;Persist Security Info=True;User ID=challenger;Password=seisMiles;TrustServerCertificate=true"
+  ProviderName: System.Data.SqlClient

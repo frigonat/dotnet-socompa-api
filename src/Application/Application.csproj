@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\Build\Common.props" />
+  <PropertyGroup>
+    <RootNamespace>dotnet_socompa_api.Application</RootNamespace>
+    <AssemblyName>dotnet_socompa_api.Application</AssemblyName>
+    <Version>8.2.2</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Andreani.Arq.Core.Relational" Version="8.1.0" />
+    <PackageReference Include="Andreani.Arq.Observability" Version="8.1.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UseCase\V1\PedidoOperation\Queries\GetById\" />
+    <Folder Include="UseCase\V2\" />
+  </ItemGroup>
+</Project>
