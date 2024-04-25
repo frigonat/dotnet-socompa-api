@@ -10,6 +10,7 @@ public class ApplicationDbContext : DbContext
     {
     }
     public DbSet<Person> Person { get; set; }
+    public DbSet<Pedido> Pedido { get; set; }      
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

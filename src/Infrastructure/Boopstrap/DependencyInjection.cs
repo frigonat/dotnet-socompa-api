@@ -16,7 +16,6 @@ public static class DependencyInjection
 
         services.AddScoped<ICommandSqlServer, CommandSqlServer>();
         services.AddScoped<IQuerySqlServer, QuerySqlServer>();
-
-    return services;
+        return services;
     }
 }

@@ -17,7 +17,7 @@ namespace dotnet_socompa_api.Infrastructure.Persistence.Configurations
             builder.ToTable("pedidos");
             builder.Property(e => e.id);
             builder.Property(e => e.numeroDePedido);
-            builder.Property(e => e.cicloDePedido);
+            builder.Property(e => e.cicloDelPedido);
             builder.Property(e => e.codigoDeContratoInterno);
             builder.Property(e => e.estadoDelPedido);
             builder.Property(e => e.cuentaCorriente);

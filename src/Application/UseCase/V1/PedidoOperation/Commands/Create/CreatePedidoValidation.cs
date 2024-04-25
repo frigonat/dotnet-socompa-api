@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Command.Create
+namespace dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Commands.Create
 {
     internal class CreatePedidoValidation
     {
