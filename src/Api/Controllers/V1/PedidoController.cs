@@ -8,7 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebApi.Models;
-using dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Queries.GetByName;
+using dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Queries.GetById;
+using dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Queries.GetList;
 
 
 namespace dotnet_socompa_api.Controllers.V1;
@@ -20,7 +21,7 @@ public class PedidoController : ApiControllerBase
     /// <summary>
     /// Alta de nuevo pedido.-
     /// </summary>
-    /// <param name="body"></param>
+    /// <param name="body">Datos contrato y cuenta corriente para el nuevo pedido.-</param>
     /// <returns></returns>
     [HttpPost]
     [ProducesResponseType(typeof(CreatePedidoResponse), StatusCodes.Status201Created)]
@@ -28,29 +29,20 @@ public class PedidoController : ApiControllerBase
     public async Task<IActionResult> Create(CreatePedidoCommand body) => Result(await Mediator.Send(body));
 
     /// <summary>
-    /// Listado de persona de la base de datos
+    /// Listado de pedidos existentes.-
     /// </summary>
     /// <remarks>en los remarks podemos documentar información más detallada</remarks>
     /// <returns></returns>
-    //[HttpGet]
-    //[ProducesResponseType(typeof(List<Person>), StatusCodes.Status200OK)]
-    //[ProducesResponseType(typeof(List<Notify>), StatusCodes.Status400BadRequest)]
-    //public async Task<IActionResult> Get() => Result(await Mediator.Send(new ListPerson()));
+    [HttpGet]
+    [ProducesResponseType(typeof(List<Pedido>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(List<Notify>), StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Get() => Result(await Mediator.Send(new ListPedido()));
 
-    //[HttpPut("{id}")]
-    //[ProducesResponseType(StatusCodes.Status200OK)]
-    //[ProducesResponseType(typeof(List<Notify>), StatusCodes.Status400BadRequest)]
-    //[ProducesResponseType(typeof(List<Notify>), StatusCodes.Status404NotFound)]
-    //public async Task<IActionResult> Update(string id, UpdatePersonVm body)
-    //{
-    //    return Result(await Mediator.Send(new UpdatePersonCommand
-    //    {
-    //        PersonId = id,
-    //        Apellido = body.Apellido,
-    //        Nombre = body.Nombre
-    //    }));
-    //}
-
+    /// <summary>
+    /// Búsqueda de un pedido según su Id.-
+    /// </summary>
+    /// <param name="id">Guid del pedido a buscar.-</param>
+    /// <returns></returns>
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(List<Notify>), StatusCodes.Status400BadRequest)]

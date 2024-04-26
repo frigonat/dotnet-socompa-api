@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using dotnet_socompa_api.Infrastructure.Persistence;
 using System.Threading.Tasks;
 using System;
+using System.Collections.Generic;
 
 namespace dotnet_socompa_api.Infrastructure.Services
 {
@@ -27,6 +28,11 @@ namespace dotnet_socompa_api.Infrastructure.Services
         public async Task<Pedido> GetPedidoByIdAsync(Guid id)
         {
             return await _context.Pedido.FirstAsync(x => x.id == id);
+        }
+
+        public async Task<List<Pedido>> GetAllPedidosAsync()
+        {
+            return await _context.Pedido.ToListAsync();
         }
     }
 }

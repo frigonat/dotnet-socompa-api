@@ -7,7 +7,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Queries.GetByName
+namespace dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Queries.GetById
 {
     public class GetPedidoById : IRequest<Response<Pedido>>
     {
@@ -26,7 +26,7 @@ namespace dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Queries.GetB
                 var pedido = await query.GetPedidoByIdAsync(resultado);
                 if (pedido == null)
                 {
-                    response.AddNotification("#3123", nameof(request.id), string.Format(ErrorMessage.NOT_FOUND_RECORD, nameof(Pedido), request.id));
+                    response.AddNotification("#6031-i", nameof(request.id), string.Format(ErrorMessage.NOT_FOUND_RECORD, nameof(Pedido), request.id));
                     response.StatusCode = System.Net.HttpStatusCode.NotFound;
                     return response;
                 }
@@ -37,8 +37,8 @@ namespace dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Queries.GetB
             }
             else
             {
-                response.AddNotification("#3123", nameof(request.id), string.Format(ErrorMessage.ID_INVALIDO, nameof(Pedido), request.id));
-                response.StatusCode = System.Net.HttpStatusCode.NotFound;
+                response.AddNotification("#6031-ii", nameof(request.id), string.Format(ErrorMessage.ID_INVALIDO, nameof(Pedido), request.id));
+                response.StatusCode = System.Net.HttpStatusCode.BadRequest;
                 return response;
             }
         }
