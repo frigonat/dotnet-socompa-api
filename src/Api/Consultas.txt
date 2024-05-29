@@ -1,0 +1,20 @@
+﻿
+
+La API hoy genera el pedido correctamente; pero necesito que lo publique. Hice un servicio en Infraestructure llamado PublisherService (que implementa IPublisherService) pero no 
+se como llamarlo o desde donde hacerlo.-
+
+1) ¿Lo llamo desde el controller? Parecería lo mejor: así la clase CreatePedidoCommand.cs sólo se encarga de la creación y no se mete con la publicación.
+	Si lo hago así, el response del CreatePedidoCommand me devuelve el id del pedido, por lo que el controller lo recupera mediante el GetPedidoById.-
+
+	¿Cómo llamo al PublisherService?
+
+2) ¿Meto la publicación en el comando CreatePedidoCommand? 
+
+3) ¿Está bien creado un servicio PublishService? 
+
+4) Y si pruebo de crear un comando? Entonces lo puedo llamar por MediatR desde el controller.-
+
+La respuesta fue, crear un comando.Opté por ponerlo en PedidoOperation/Commands y llamarlo PublishPedidoCommand.cs
+29.05.2024 - FERNANDO
+
+

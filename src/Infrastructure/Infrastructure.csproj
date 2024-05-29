@@ -1,21 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\Build\Common.props"/>
+  <Import Project="..\..\Build\Common.props" />
   <PropertyGroup>
     <RootNamespace>dotnet_socompa_api.Infrastructure</RootNamespace>
     <AssemblyName>dotnet_socompa_api.Infrastructure</AssemblyName>
     <Version>8.2.2</Version>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="EventHandler\"/>
+    <Folder Include="EventHandler\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Andreani.ARQ.CQRS" Version="8.1.0"/>
+    <PackageReference Include="Andreani.ARQ.AMQStreams" Version="8.4.1" />
+    <PackageReference Include="Andreani.ARQ.CQRS" Version="8.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Application\Application.csproj"/>
+    <ProjectReference Include="..\Application\Application.csproj" />
   </ItemGroup>
 </Project>

@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using WebApi.Models;
 using dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Queries.GetById;
 using dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Queries.GetList;
+using dotnet_socompa_api.Infrastructure.Services;
+using dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Commands.Publish;
 
 
 namespace dotnet_socompa_api.Controllers.V1;
@@ -26,7 +28,15 @@ public class PedidoController : ApiControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(CreatePedidoResponse), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(List<Notify>), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Create(CreatePedidoCommand body) => Result(await Mediator.Send(body));
+    public async Task<IActionResult> Create(CreatePedidoCommand body)
+    {
+        Response<CreatePedidoResponse> response = await Mediator.Send(body);
+        Response<Pedido> miPedido =  await Mediator.Send(new GetPedidoById() { id = response.Content.pedidoId });
+
+        await Mediator.Send( new PublishPedidoCommand() { pedidoParaPublicar = miPedido.Content } );
+
+        return Result(response);
+    }
 
     /// <summary>
     /// Listado de pedidos existentes.-
