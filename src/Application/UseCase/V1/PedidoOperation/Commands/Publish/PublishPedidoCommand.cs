@@ -23,7 +23,6 @@ namespace dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Commands.Pub
     {
         public async Task<Response<PublishPedidoResponse>> Handle(PublishPedidoCommand request, CancellationToken cancellationToken)
         {
-            
             Andreani.Scheme.Onboarding.Pedido p = new Andreani.Scheme.Onboarding.Pedido()
             {
                 id = request.pedidoParaPublicar.id.ToString(),
@@ -31,7 +30,7 @@ namespace dotnet_socompa_api.Application.UseCase.V1.PedidoOperation.Commands.Pub
                 cuando = request.pedidoParaPublicar.cuando.ToString(),
                 estadoDelPedido = request.pedidoParaPublicar.estadoDelPedido.ToString(),
                 numeroDePedido = 0,
-                cuentaCorriente = 0,
+                cuentaCorriente = System.Convert.ToInt64(request.pedidoParaPublicar.cuentaCorriente),
                 cicloDelPedido = request.pedidoParaPublicar.cicloDelPedido
             };
 
